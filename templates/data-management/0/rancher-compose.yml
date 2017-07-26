@@ -121,13 +121,4 @@ services:
       strategy: recreate
   mysql-data:
     scale: 1
-    start_on_create: true    
-  adminer:
-    scale: 1
-    health_check:
-      port: 88
-      interval: 3000
-      unhealthy_threshold: 2
-      healthy_threshold: 2
-      response_timeout: 2000
-      request_line: 'GET "/" "HTTP/1.0"'
+    start_on_create: true

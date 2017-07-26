@@ -37,4 +37,4 @@ services:
     labels:
       io.rancher.sidekicks: mysql-data
     volumes_from:
-      - mysql-data      
+      - mysql-data
