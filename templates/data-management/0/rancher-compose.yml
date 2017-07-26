@@ -92,6 +92,8 @@
 
 version: '2'
 services:
+  adminer:
+    scale: 1
   mysql-lb:
     scale: 1
     start_on_create: true
