@@ -1,0 +1,5 @@
+name: Data Mangement
+description: |
+  a CQRS based solution which seemless integrates SQL/JPA, Graph-, timeseries-, bigdata- stores behind an easy to use, standard based API
+version: 1.0.0
+category: Databases
