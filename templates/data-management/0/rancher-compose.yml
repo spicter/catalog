@@ -100,7 +100,6 @@ services:
       unhealthy_threshold: 2
       healthy_threshold: 2
       response_timeout: 2000
-      request_line: 'GET "/" "HTTP/1.0"'
   mysql-lb:
     scale: 1
     start_on_create: true
