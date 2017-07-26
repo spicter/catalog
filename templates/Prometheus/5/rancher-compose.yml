@@ -1,13 +1,13 @@
 .catalog:
-  name: "Prometheus"
+  name: "System Monitoring"
   version: "3.0.0"
-  description: "Prometheus Monitoring Solution"
-  uuid: prometheus-2
+  description: "Spicter System Monitoring"
+  uuid: spicter-system-monitoring
   minimum_rancher_version: v1.5.5
   questions:
   - variable: "RANCHER_SERVER"
-    label: "Rancher Server"
-    description: "IP Address of the rancher server, no HTTP or slashes. This is only required for users that have enabled metrics to be exported by Rancher"
+    label: "Spicter Server"
+    description: "IP Address of the spicter server, no HTTP or slashes. This is only required for users that have enabled metrics to be exported by SpicterCloud"
     default: "0.0.0.0"
     required: false
     type: "string"
