@@ -38,3 +38,6 @@ services:
       io.rancher.sidekicks: mysql-data
     volumes_from:
       - mysql-data
+  adminer:
+  	image: 'clue/adminer:latest'
+  	restart: on-failure
