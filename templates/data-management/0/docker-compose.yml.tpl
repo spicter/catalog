@@ -1,5 +1,8 @@
 version: '2'
 services:
+  adminer:
+  	image: 'clue/adminer:latest'
+  	restart: on-failure
   mysql-lb:
     image: rancher/lb-service-haproxy:v0.6.4
     ports:
@@ -38,6 +41,3 @@ services:
       io.rancher.sidekicks: mysql-data
     volumes_from:
       - mysql-data
-  adminer:
-  	image: 'clue/adminer:latest'
-  	restart: on-failure
