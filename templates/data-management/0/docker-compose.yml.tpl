@@ -1,10 +1,5 @@
 version: '2'
 services:
-  adminer:
-  	image: clue/adminer:latest
-  	restart: on-failure
-  	ports:
-      - 88:80
   mysql-lb:
     image: rancher/lb-service-haproxy:v0.6.4
     ports:
