@@ -121,8 +121,7 @@ services:
       strategy: recreate
   mysql-data:
     scale: 1
-    start_on_create: true
-    
+    start_on_create: true    
   adminer:
     scale: 1
     health_check:
