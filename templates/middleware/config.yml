@@ -1,0 +1,5 @@
+name: Middleware
+description: |
+  a full middleware stack including ESB, BPM and Rules engine, decission tables, message- and notification frameworks 
+version: v0.0.1
+category: Middleware
