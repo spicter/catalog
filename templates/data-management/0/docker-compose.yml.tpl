@@ -1,24 +1,19 @@
 version: '2'
-
 services:
-
-  adminer-t:
+  adminer:
     image: clue/adminer:latest
     ports:
       - 88:80
-
   mysql-lb:
     image: rancher/lb-service-haproxy:v0.6.4
     ports:
       - ${mysql_lb_port}:${mysql_lb_port}
-
   mysql-data:
     image: busybox
     labels:
       io.rancher.container.start_once: true
     volumes:
       - /var/lib/mysql
-
   mysql:
     image: ${mysql_image}
     environment:
