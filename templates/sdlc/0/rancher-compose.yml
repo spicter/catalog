@@ -1,0 +1,106 @@
+.catalog:
+  name: SDLC
+  version: 1.0.0
+  description: |
+    A fully integrated software development lifecycle stack
+  minimum_rancher_version: v0.56.0
+  maintainer: "Andreas Oberhack <andreas@spicter.com>"
+  uuid: gitlab-1
+  questions:
+    - variable: "gitlab_hostname"
+      description: "Gitlab hostname (without uri scheme http:// or https://)"
+      label: "Hostname:"
+      required: true
+      default: "git.example.com"
+      type: "string"
+    - variable: "registry_gitlab_hostname"
+      description: "Registry Gitlab hostname (without uri scheme http:// or https://)"
+      label: "Registry hostname:"
+      required: true
+      default: "registry.example.com"
+      type: "string"
+    - variable: "gitlab_omnipus_prefix"
+      label: "Gitlab external_url prefix:"
+      description: |
+        This is needed for the docker-compose file to set the correct external_url
+      default: 'http://'
+      required: true
+      type: "enum"
+      options:
+        - 'http://'
+        - 'https://'
+    - variable: "http_port"
+      description: "HTTP port to expose on host. Will be used to bind TCP"
+      label: "HTTP port:"
+      required: true
+      default: 80
+      type: "int"
+    - variable: "https_port"
+      description: "HTTPS port to expose on host. Will be used to bind TCP"
+      label: "HTTPS port:"
+      required: true
+      default: 443
+      type: "int"
+    - variable: "ssh_port"
+      description: "SSH port to expose on host. Will be used to bind TCP"
+      label: "SSH port:"
+      required: true
+      default: 22
+      type: "int"
+    - variable: "volumedriver"
+      description: "Choose the Volume Driver being used.(Option: local or rancher-nfs)"
+      label: "Volume Driver:"
+      required: true
+      default: local
+      type: "enum"
+      options:
+        - local
+        - rancher-nfs
+    - variable: "PORT"
+      type: "int"
+      label: "Port Number"
+      description: "Which port should Jenkins listen on?"
+      default: 8080
+      required: true
+    - variable: "volume_work"
+      description: "Work volume to save jenkins data"
+      label: "Work volume:"
+      required: true
+      default: "/var/lib/docker/jenkins-ci"
+      type: "string"
+    - variable: "plugins"
+      type: "multiline"
+      label: "List of Plugins"
+      description: |
+        List of plugins in the format <plugin_name>[:<version>]
+        one entry per line.
+      default: |
+        credentials
+        git
+        git-client
+        github
+        github-api
+        github-oauth
+        greenballs
+        junit
+        plain-credentials
+        scm-api
+        ssh-credentials
+        ssh-slaves
+        swarm
+        
+gitlab-server:
+  scale: 1
+  retain_ip: true
+  health_check:
+    port: 80
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
+    
+jenkins-primary:
+  metadata:
+    plugins: |
+      ${plugins}
