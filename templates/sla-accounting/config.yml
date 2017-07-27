@@ -1,0 +1,5 @@
+name: SLA and Accounting
+description: |
+  accounting module to monitor costs and service performance  
+version: v0.0.1
+category: Application
