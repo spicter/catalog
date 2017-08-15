@@ -1,0 +1,5 @@
+name: SpicterCore
+description: |
+  a preconfigured service container including all APIs to access all othe modules   
+version: v0.0.1
+category: Development
