@@ -69,7 +69,7 @@ gitlab-server:
   scale: 1
   retain_ip: true
   health_check:
-    port: 81
+    port: 80
     interval: 30000
     unhealthy_threshold: 3
     strategy: recreate
@@ -84,9 +84,17 @@ jenkins-primary:
 che:
   scale: 1
   health_check:
-    port: 8082
+    port: 80
     interval: 30000
     unhealthy_threshold: 3
     strategy: recreate
     response_timeout: 2000
     healthy_threshold: 2
+    
+openproject:
+    scale: 1
+    start_on_create: true
+
+openproject-data:
+    scale: 1
+    start_on_create: true

@@ -48,5 +48,27 @@ services:
     image: eclipse/che-server:5.0.0-latest
     ports: 
       - 8082:8080
+    environments:
+      - CHE_LOCAL_CONF_DIR=/C/conf
     volumes:
      - /var/run/docker.sock:/var/run/docker.sock
+  openproject:
+    image: openproject/community:7
+    volumes_from:
+      - openproject-data
+    ports:
+      - 8083:80
+    labels:
+      io.rancher.sidekicks: openproject-data
+      io.rancher.container.hostname_override: container_name
+  openproject-data:
+    image: openproject/community:7
+    entrypoint:
+      - /bin/true
+    volumes:
+      - /var/lib/postgresql/9.4/main
+      - /var/log/supervisor
+      - /var/db/openproject
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
