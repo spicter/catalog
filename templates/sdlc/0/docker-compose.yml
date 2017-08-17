@@ -75,7 +75,6 @@ services:
       
   sonarqube-data:
     image: busybox
-    net: none
     labels:
       io.rancher.container.start_once: true
     volumes:
@@ -98,7 +97,6 @@ services:
 
 postgres-data:
     image: busybox
-    net: none
     labels:
       io.rancher.container.start_once: true
     volumes:
