@@ -1,9 +1,18 @@
-# GitLab CE
+# Software Development Livecycle Management (SDLC)
 
-GitLab CE is a free alternative to GitHub
+### Info:
 
-Stack based on official GitLab version: latest
+This template deploys a collection of SDLC services based upon the technologies listed below, once deployed you will have an integrated software -development and -lifecycle management platform
 
-https://hub.docker.com/r/gitlab/gitlab-ce/
+In this catalog item, the following technologies are utilised to make this as useful as possible;
+
+* Eclipse Che as an web based IDE (Integrated development environment)
+* Gitlab for source code and issue management
+* jenkins for continuous integration and deployment
+
+### Future Enhancements:
+
+* OpenProject as an project management tool 
+* sonarqube as an quality measurement portal 
 
 
