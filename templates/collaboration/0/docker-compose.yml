@@ -1,3 +1,10 @@
-adminer:
-  image: 'clue/adminer:latest'
-  restart: on-failure
+version: '2'
+services:
+  foo:
+    image: alpine
+    stdin_open: true
+    volumes:
+    - vol1:/data
+volumes:
+  bar:
+    driver: rancher-nfs
