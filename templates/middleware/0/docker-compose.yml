@@ -1,3 +1,9 @@
-adminer:
-  image: 'clue/adminer:latest'
+version: '2'
+services:
+  jbpm:
+    ports:
+      - 8085:8080/tcp
+      - 8086:8081/tcp
+  image: 'jboss/jbpm-workbench-showcase:latest'
+  name: jbpm
   restart: on-failure
