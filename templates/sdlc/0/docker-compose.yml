@@ -10,9 +10,9 @@ volumes:
 services:
   gitlab-server:
     ports:
-      - ${ssh_port}:22/tcp
-      - ${http_port}:80/tcp
-      - ${https_port}:443/tcp
+      - 22:22/tcp
+      - 81:80/tcp
+      - 8443:443/tcp
     labels:
       io.rancher.container.hostname_override: container_name
     image: gitlab/gitlab-ce:9.3.3-ce.0
@@ -27,7 +27,7 @@ services:
   jenkins-primary:
     image: "jenkins:2.60.1"
     ports:
-      - "${PORT}:8080"
+      - "8081:8080"
     labels:
       io.rancher.sidekicks: jenkins-plugins,jenkins-datavolume
       io.rancher.container.hostname_override: container_name
@@ -44,4 +44,13 @@ services:
     labels:
       io.rancher.container.start_once: true
     entrypoint: ["chown", "-R", "1000:1000", "/var/jenkins_home"]
-        
+  che:
+    image: eclipse/che-server:5.0.0-latest
+    port: 8082:8080
+    restart: always
+    environment:
+      CHE_LOCAL_CONF_DIR=/C/conf
+      CHE_ASSEMBLY=/home/my_assembly
+      DOCKER_MACHINE_HOST=172.20.0.1
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock

@@ -29,24 +29,6 @@
       options:
         - 'http://'
         - 'https://'
-    - variable: "http_port"
-      description: "HTTP port to expose on host. Will be used to bind TCP"
-      label: "HTTP port:"
-      required: true
-      default: 80
-      type: "int"
-    - variable: "https_port"
-      description: "HTTPS port to expose on host. Will be used to bind TCP"
-      label: "HTTPS port:"
-      required: true
-      default: 443
-      type: "int"
-    - variable: "ssh_port"
-      description: "SSH port to expose on host. Will be used to bind TCP"
-      label: "SSH port:"
-      required: true
-      default: 22
-      type: "int"
     - variable: "volumedriver"
       description: "Choose the Volume Driver being used.(Option: local or rancher-nfs)"
       label: "Volume Driver:"
@@ -56,12 +38,6 @@
       options:
         - local
         - rancher-nfs
-    - variable: "PORT"
-      type: "int"
-      label: "Port Number"
-      description: "Which port should Jenkins listen on?"
-      default: 8080
-      required: true
     - variable: "volume_work"
       description: "Work volume to save jenkins data"
       label: "Work volume:"
@@ -93,7 +69,7 @@ gitlab-server:
   scale: 1
   retain_ip: true
   health_check:
-    port: 80
+    port: 81
     interval: 30000
     unhealthy_threshold: 3
     strategy: recreate
@@ -104,3 +80,13 @@ jenkins-primary:
   metadata:
     plugins: |
       ${plugins}
+
+che:
+  scale: 1
+  health_check:
+    port: 8082
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
