@@ -48,7 +48,7 @@ services:
     image: eclipse/che-server:5.0.0-latest
     ports: 
       - 8082:8080
-    environments:
+    environment:
       - CHE_LOCAL_CONF_DIR=/C/conf
     volumes:
      - /var/run/docker.sock:/var/run/docker.sock

@@ -10,11 +10,11 @@ In this catalog item, the following technologies are utilised to make this as us
 * Eclipse Che as an web based IDE (Integrated development environment)
 * Gitlab for source code and issue management
 * jenkins for continuous integration and deployment
+* OpenProject as an project management tool 
 
 
 ### Future Enhancements:
 
-* OpenProject as an project management tool 
 * sonarqube as an quality measurement portal 
 
 
