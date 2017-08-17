@@ -48,9 +48,5 @@ services:
     image: eclipse/che-server:5.0.0-latest
     ports: 
       - 8082:8080
-    environment:
-      CHE_LOCAL_CONF_DIR=/C/conf
-      CHE_ASSEMBLY=/home/my_assembly
-      DOCKER_MACHINE_HOST=172.20.0.1
     volumes:
      - /var/run/docker.sock:/var/run/docker.sock
