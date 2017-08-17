@@ -50,6 +50,7 @@ services:
       - 8082:8080
     environment:
       - CHE_LOCAL_CONF_DIR=/C/conf
+      - CHE_ASSEMBLY=/home/my_assembly
     volumes:
      - /var/run/docker.sock:/var/run/docker.sock
   openproject:
