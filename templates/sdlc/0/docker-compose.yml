@@ -95,14 +95,14 @@ services:
     volumes_from:
         - sonarqube-data        
 
-postgres-data:
+  postgres-data:
     image: busybox
     labels:
       io.rancher.container.start_once: true
     volumes:
         - /var/lib/postgresql/data/pgdata
 
-postgres:
+  postgres:
     image: postgres:latest
     ports:
         - 5432:5432
