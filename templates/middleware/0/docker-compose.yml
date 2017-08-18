@@ -3,6 +3,7 @@ services:
   jbpm:
     ports:
       - 8085:8080/tcp
-      - 8086:8081/tcp
-    image: jboss/jbpm-workbench-showcase:latest
+      - 8086:9990/tcp
+      - 8087:8001/tcp
+    image: trigsoft/wildfly-jbpm
     restart: on-failure
