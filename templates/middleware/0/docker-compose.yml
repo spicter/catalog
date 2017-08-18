@@ -7,4 +7,4 @@ services:
       - 8087:8001/tcp
     image: jboss/jbpm-workbench-showcase
     restart: on-failure
-    network_mode: "host"
+    network_mode: default
