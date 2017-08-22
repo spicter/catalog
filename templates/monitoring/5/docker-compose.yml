@@ -57,7 +57,10 @@ grafana:
     ports:
       - 3000:3000
     labels:
-      io.rancher.sidekicks: graf-db
+      - "io.rancher.sidekicks=graf-db"
+      - "traefik.enable=true"
+      - "traefik.backend=portainer"
+      - "traefik.frontend.rule=PathPrefixStrip:/portainer"
     volumes_from:
        - graf-db
     links:
