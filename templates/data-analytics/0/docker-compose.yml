@@ -11,3 +11,9 @@ netdata:
   - 19999:19999/tcp
   environment:
     NETDATA_PORT: "${NETDATA_PORT}"
+traefik:
+  image: romracer/rancher-traefik
+  ports:
+  - 8000:8000/tcp
+  - 8443:8443/tcp
+  - 8080:8080/tcp

@@ -11,3 +11,5 @@
       default: 19999
 netdata:
   scale: 1
+traefik:
+  scale: 1
