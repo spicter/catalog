@@ -19,4 +19,3 @@ traefik:
   - 8080:8080/tcp
   labels:
     io.rancher.scheduler.global: 'true'
-    io.rancher.scheduler.affinity:host_label: 'traefik_lb=true'
