@@ -28,8 +28,8 @@ grafana:
       traefik.enable: true
       traefik.backend: grafana
       traefix.port: 3000
-      traefik.frontend.rule: Host
-      traefik.frontend.value: "grafana.cloud.spicter.com"
+      traefik.domain: "grafana.cloud.spicter.com"
+      traefik.alias: "grafana1.cloud.spicter.com"
   health_check:
     port: 3000
     interval: 5000
