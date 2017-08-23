@@ -24,7 +24,7 @@ prometheus:
 
 grafana:
   scale: 1
-  label:
+  labels:
       traefik.enable: true
       traefik.backend: grafana
       traefix.port: 8080
