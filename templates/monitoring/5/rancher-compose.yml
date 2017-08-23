@@ -27,8 +27,9 @@ grafana:
   labels:
       traefik.enable: true
       traefik.backend: grafana
-      traefix.port: 8080
-      traefik.domain: grafana.cloud.spicter.com
+      traefix.port: 3000
+      traefik.frontend.rule: Host
+      traefik.frontend.value: "grafana.cloud.spicter.com"
   health_check:
     port: 3000
     interval: 5000

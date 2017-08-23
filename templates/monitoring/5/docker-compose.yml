@@ -58,6 +58,7 @@ grafana:
       - 3000:3000
     labels:
       - "io.rancher.sidekicks=graf-db"
+      - "traefik.enable=true"
     volumes_from:
        - graf-db
     links:
