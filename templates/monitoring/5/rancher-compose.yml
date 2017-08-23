@@ -27,7 +27,7 @@ grafana:
   labels:
       traefik.enable: true
       traefik.backend: grafana
-      traefix.port: 81
+      traefix.port: 8080
       traefik.domain: "cloud.spicter.com"
       traefik.alias: "grafana"
   health_check:
