@@ -66,6 +66,9 @@ services:
       io.rancher.container.start_once: true
     volumes:
         - /opt/che/data
+        - /home/user/che/lib:/home/user/che/lib-copy \
+        - /home/user/che/workspaces:/home/user/che/workspaces \
+        - /home/user/che/storage:/home/user/che/storage \
   openproject:
     image: openproject/community:7
     volumes_from:
