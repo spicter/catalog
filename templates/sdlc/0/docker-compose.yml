@@ -11,10 +11,13 @@ services:
   gitlab-server:
     ports:
       - 22:22/tcp
-      - 81:80/tcp
       - 8443:443/tcp
     labels:
       io.rancher.container.hostname_override: container_name
+      traefik.enable: true
+      traefik.port: 80
+      traefik.domain: cloud.spicter.com
+      traefik.alias: git
     image: gitlab/gitlab-ce:9.3.3-ce.0
     volumes:
       - gitlab-app-data:/var/opt/gitlab
@@ -26,11 +29,13 @@ services:
         registry_external_url '${gitlab_omnipus_prefix}${registry_gitlab_hostname}'
   jenkins-primary:
     image: "jenkins:2.60.1"
-    ports:
-      - "8081:8080"
     labels:
       io.rancher.sidekicks: jenkins-plugins,jenkins-datavolume
       io.rancher.container.hostname_override: container_name
+      traefik.enable: true
+      traefik.port: 8080
+      traefik.domain: cloud.spicter.com
+      traefik.alias: jenkins
     volumes_from:
       - jenkins-plugins
       - jenkins-datavolume
@@ -46,19 +51,20 @@ services:
     entrypoint: ["chown", "-R", "1000:1000", "/var/jenkins_home"]
   che:
     image: eclipse/che-server:5.0.0-latest
-    ports: 
-      - 8082:8080
     environment:
       - CHE_LOCAL_CONF_DIR=/C/conf
       - CHE_ASSEMBLY=/home/my_assembly
     volumes:
      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      traefik.enable: true
+      traefik.port: 8080
+      traefik.domain: cloud.spicter.com
+      traefik.alias: ide
   openproject:
     image: openproject/community:7
     volumes_from:
       - openproject-data
-    ports:
-      - 8083:80
     labels:
       io.rancher.sidekicks: openproject-data
       io.rancher.container.hostname_override: container_name
@@ -73,18 +79,18 @@ services:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
-      
+      traefik.enable: true
+      traefik.port: 80
+      traefik.domain: cloud.spicter.com
+      traefik.alias: project
   sonarqube-data:
     image: busybox
     labels:
       io.rancher.container.start_once: true
     volumes:
         - /opt/sonarqube/extensions/plugins
-
   sonarqube:
     image: sonarqube
-    ports:
-        - 8084:9000
     links:
         - postgres
     environment:
@@ -92,7 +98,11 @@ services:
         SONARQUBE_JDBC_PASSWORD: test-password
         SONARQUBE_JDBC_URL: jdbc:postgresql://postgres/sonar
     labels:
-        io.rancher.sidekicks: sonarqube-data
+      io.rancher.sidekicks: sonarqube-data
+      traefik.enable: true
+      traefik.port: 9000
+      traefik.domain: cloud.spicter.com
+      traefik.alias: git
     volumes_from:
         - sonarqube-data        
 
