@@ -102,7 +102,7 @@ services:
       traefik.enable: true
       traefik.port: 9000
       traefik.domain: cloud.spicter.com
-      traefik.alias: git
+      traefik.alias: sonar
     volumes_from:
         - sonarqube-data        
 
