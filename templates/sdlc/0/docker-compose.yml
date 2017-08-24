@@ -62,7 +62,7 @@ services:
       traefik.domain: cloud.spicter.com
       traefik.alias: ide
     volumes_from:
-      - sonarqube-data
+      - che-data
   che-data:
     image: busybox
     labels:

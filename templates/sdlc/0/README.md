@@ -11,10 +11,10 @@ In this catalog item, the following technologies are utilised to make this as us
 * Gitlab for source code and issue management
 * jenkins for continuous integration and deployment
 * OpenProject as an project management tool 
-
+* sonarqube as an quality measurement portal
 
 ### Future Enhancements:
 
-* sonarqube as an quality measurement portal 
+* nexus as artefact repository 
 
 
