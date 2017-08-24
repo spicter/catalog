@@ -76,6 +76,10 @@ services:
     labels:
       io.rancher.sidekicks: openproject-data
       io.rancher.container.hostname_override: container_name
+      traefik.enable: true
+      traefik.port: 80
+      traefik.domain: cloud.spicter.com
+      traefik.alias: project
   openproject-data:
     image: openproject/community:7
     entrypoint:
@@ -87,10 +91,6 @@ services:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
-      traefik.enable: true
-      traefik.port: 80
-      traefik.domain: cloud.spicter.com
-      traefik.alias: project
   sonarqube-data:
     image: busybox
     labels:
