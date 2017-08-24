@@ -56,10 +56,19 @@ services:
     volumes:
      - /var/run/docker.sock:/var/run/docker.sock
     labels:
+      io.rancher.sidekicks: che-data
       traefik.enable: true
       traefik.port: 8080
       traefik.domain: cloud.spicter.com
       traefik.alias: ide
+    volumes_from:
+      - sonarqube-data
+  che-data:
+    image: busybox
+    labels:
+      io.rancher.container.start_once: true
+    volumes:
+        - /opt/che/data
   openproject:
     image: openproject/community:7
     volumes_from:
