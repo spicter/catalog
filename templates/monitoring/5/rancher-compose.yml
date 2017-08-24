@@ -24,12 +24,6 @@ prometheus:
 
 grafana:
   scale: 1
-  labels:
-      traefik.enable: true
-      traefik.backend: grafana
-      traefix.port: 8079
-      traefik.domain: "cloud.spicter.com"
-      traefik.alias: "grafana"
   health_check:
     port: 3000
     interval: 5000

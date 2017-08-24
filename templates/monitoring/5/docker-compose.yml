@@ -60,6 +60,8 @@ grafana:
       - "io.rancher.sidekicks=graf-db"
       - "traefik.enable=true"
       - "traefik.port=3000"
+      - "traefik.domain=cloud.spicter.com"
+      - "traefik.alias=grafana"
     volumes_from:
        - graf-db
     links:
