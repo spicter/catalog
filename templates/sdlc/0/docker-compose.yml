@@ -50,9 +50,6 @@ services:
     entrypoint: ["chown", "-R", "1000:1000", "/var/jenkins_home"]
   che:
     image: eclipse/che-server:5.0.0-latest
-    environment:
-      - CHE_LOCAL_CONF_DIR=/C/conf
-      - CHE_ASSEMBLY=/home/my_assembly
     volumes:
      - /var/run/docker.sock:/var/run/docker.sock
     labels:
