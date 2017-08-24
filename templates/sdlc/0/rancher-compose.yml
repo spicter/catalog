@@ -77,18 +77,46 @@ gitlab-server:
     healthy_threshold: 2
     
 jenkins-primary:
+  scale: 1
   metadata:
     plugins: |
       ${plugins}
-
+  health_check:
+    port: 8080
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
 che:
   scale: 1
   start_on_create: true
+  health_check:
+    port: 8080
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
     
 openproject:
     scale: 1
     start_on_create: true
+    health_check:
+      port: 8080
+      interval: 30000
+      unhealthy_threshold: 3
+      strategy: recreate
+      response_timeout: 2000
+      healthy_threshold: 2
 
 openproject-data:
     scale: 1
     start_on_create: true
+    health_check:
+      port: 8080
+      interval: 30000
+      unhealthy_threshold: 3
+      strategy: recreate
+      response_timeout: 2000
+      healthy_threshold: 2
