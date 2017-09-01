@@ -15,6 +15,7 @@ In this catalog item, the following technologies are utilised to make this as us
 ### Future enhancements:
 * zabbix for deeper system monitoring 
 * eventing/notification
+* sentry
 
 
 All components in this stack are open source tools available in the community. All this template does is to bound them together in an easy to use package. 
