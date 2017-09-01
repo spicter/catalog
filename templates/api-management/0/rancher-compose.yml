@@ -1,2 +1,6 @@
+.catalog:
+  name: netdata
+  version: v1.0.0
+  description: API Management, done right!
 dreamfactory:
   scale: 1
