@@ -22,7 +22,7 @@ services:
     labels:
       kompose.service.type: nodeport
       traefik.enable: true
-      traefik.port: 88
+      traefik.port: 80
       traefik.domain: cloud.spicter.com
       traefik.alias: api
     ports:
