@@ -20,6 +20,7 @@ services:
   dreamfactory:
     image: 'bitnami/dreamfactory:latest'
     labels:
+      io.rancher.sidekicks: mariadb_data,redis_data,mongodb_data,dreamfactory_data
       kompose.service.type: nodeport
       traefik.enable: true
       traefik.port: 80
