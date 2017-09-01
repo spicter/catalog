@@ -22,11 +22,11 @@ services:
     labels:
       kompose.service.type: nodeport
       traefik.enable: true
-      traefik.port: 80
+      traefik.port: 88
       traefik.domain: cloud.spicter.com
       traefik.alias: api
     ports:
-      - '80:80'
+      - '88:80'
     depends_on:
       - mariadb
       - redis
